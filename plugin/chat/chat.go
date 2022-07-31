@@ -29,10 +29,10 @@ func init() { // 插件主体
 			time.Sleep(time.Second * 1)
 			ctx.SendChain(message.Text(
 				[]string{
-					nickname + "在此，有何贵干~",
-					"(っ●ω●)っ在~",
+					"ko~ko~da~yo~",
+					"诶嘿！",
 					"这里是" + nickname + "(っ●ω●)っ",
-					nickname + "不在呢~",
+					nickname + "在的捏",
 				}[rand.Intn(4)],
 			))
 		})
@@ -44,11 +44,11 @@ func init() { // 插件主体
 			case poke.Load(ctx.Event.GroupID).AcquireN(3):
 				// 5分钟共8块命令牌 一次消耗3块命令牌
 				time.Sleep(time.Second * 1)
-				ctx.SendChain(message.Text("请不要戳", nickname, " >_<"))
+				ctx.SendChain(message.Text("嗯哼？"))
 			case poke.Load(ctx.Event.GroupID).Acquire():
 				// 5分钟共8块命令牌 一次消耗1块命令牌
 				time.Sleep(time.Second * 1)
-				ctx.SendChain(message.Text("喂(#`O′) 戳", nickname, "干嘛！"))
+				ctx.SendChain(message.Text( nickname, "正在吃快乐卷心菜中，要来一口嘛"))
 			default:
 				// 频繁触发，不回复
 			}
@@ -59,7 +59,7 @@ func init() { // 插件主体
 	engine.OnFullMatch("空调开").SetBlock(true).
 		Handle(func(ctx *zero.Ctx) {
 			AirConditSwitch[ctx.Event.GroupID] = true
-			ctx.SendChain(message.Text("❄️哔~"))
+			ctx.SendChain(message.Text("❄️哔————"))
 		})
 	engine.OnFullMatch("空调关").SetBlock(true).
 		Handle(func(ctx *zero.Ctx) {
